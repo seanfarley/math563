@@ -1,0 +1,175 @@
+#+TITLE: Homework 1
+#+DATE: Tuesday, January 25, 2022
+#+OPTIONS: toc:nil
+#+LATEX_HEADER_EXTRA: \allowdisplaybreaks
+#+LATEX_HEADER_EXTRA: \newcommand{\Xbar}{\overline{X}}
+
+* Exercise 5.7.1
+
+#+begin_theorem
+Color blindness occurs in $\%1$ of the people in a certain population. How large
+must a sample be if the probability of its containing a color-blind person is to
+be $0.95$ or more? (Assume that the population is large enough to be considered
+infinite, so that sampling can be considered to be with replacement.)
+#+end_theorem
+
+** TODO use early lectures to show that this problem statement is $iid$
+
+#+begin_proof
+/Solution/
+
+A useful insight to this problem is that "at least 1", meaning, one, two, ...,
+or all people (or any subset) selected from the population ($A$) are colorblind,
+has the complement set of "all zero."
+
+Using this insight, let us formulate an easier problem statement: What is the
+probability that each person is not colorblind? In other words,
+
+\[
+P\left(X_1=x_1(\text{not CB}),
+X_2=x_2(\text{not CB}), \ldots, X_n=x_n(\text{not CB})\right) = ?
+\]
+
+Since this sample is =iid=,
+\begin{align*}
+P&\left(X_1=x_1(\text{not CB}), X_2=x_2(\text{not CB}), \ldots, X_n=x_n(\text{not CB})\right) \\
+&= P(x_1) \cdot P(x_2) \cdot \ldots \cdot P(x_n) \\
+&= P(\text{not CB})^n
+\end{align*}
+
+From probability theory, we have $P(A^c) = 1 - P(A)$, which we'll use to
+calculate $P(\text{not CB})$. Given that, we have $P(\text{not CB}) = 1 -
+P(\text{CB}) = 1 - 0.01 = 0.99$.
+
+From our insight, we know that $P(\text{at least one CB person}) = 1 -
+P(\text{all people are not CB})$. Therefore,
+
+\begin{align*}
+P(\text{at least one CB person}) &= 1 - P(\text{all people are not CB}) \\
+&= 1 - P(\text{person not being CB})^n \\
+&= 1 - (0.99)^n
+\end{align*}
+
+We are asked how big our sample size $n$ needs to be for the $P(\text{at least
+one CB person}) \ge 0.95$. This leads us to,
+
+\begin{align*}
+1 - (0.99)^n &\ge 0.95 \\
+1 - 0.95 &\ge 0.99^n \\
+0.99^n &\le 0.05 \\
+\log 0.99^n &\le \log 0.05 \\
+n \cdot \log 0.99 &\le \log 0.05 \\
+\text{(log of a number} &< 1 \text{ is negative)} \\
+n &\ge \frac{\log 0.05}{\log 0.99} \approx 298.072
+\end{align*}
+
+Therefore, we need a sample size of $n \ge 299$ (the smallest integer to guarantee
+a $0.95$ probability). \qed
+#+end_proof
+
+* Exercise 5.7.4
+A generalization of =iid= random variables is exchangeable random variables, an
+idea due to deFinetti (1972). A discussion of exchangeability can also be found
+in Feller (1971). The random variables $X_{1}, \ldots, X_{n}$ are exchangeable if any
+permutation of any subset of them of size $k$ ($k \leq n$) has the same
+distribution.
+
+In this exercise we will see an example of random variables that are
+exchangeable but not =iid=. Let $X_{i} \mid P \sim$ =iid= $\text{Bernoulli}(P)$, $i=1,
+\ldots, n$, and let $P \sim \text{uniform}(0,1)$.
+
+- Show that the marginal distribution of any $k$ of the $X$'s is the same as
+
+  \begin{align*}
+  P\left(X_{1}=x_{1}, \ldots, X_{k}=x_{k}\right) &= \int_{0}^{1} p^{t}(1-p)^{k-t} dp \\
+  &= \frac{t!(k-t) !}{(k+1) !}
+  \end{align*}
+
+  where $t={\displaystyle \sum_{i=1}^{k} x_{i}}$. Hence, the $X$'s are exchangeable.
+
+- Show that, marginally,
+
+  \[
+  P\left(X_{1}=x_{1}, \ldots,X_{n}=x_{n}\right) \neq \prod_{i=1}^{n} P\left(X_{i}=x_{i}\right),
+  \]
+
+  so the distribution of the $X$'s is exchangeable but not =iid=.
+
+* Exercise 5.7.15
+
+Establish the following recursion relations for means and variances. Let
+$\overline{X}_n$ and $S_n^2$ be the mean and variance, respectively, of
+$X_1,\ldots,X_n$. Then suppose another observation, $X_{n+1}$ becomes available. Show
+that
+
+** $\Xbar_{n+1} = \frac{X_{n+1} + n\Xbar_n}{n + 1}$.
+
+\begin{proof}
+From definition $5.2.2$, we have the sample mean of sample size $n + 1$ given as
+
+\begin{align*}
+\Xbar &= \frac{X_1 + \ldots + X_n + X_{n+1}}{n + 1} \\
+&= \frac{X_1 + \ldots + X_n}{n + 1} + \frac{X_{n+1}}{n + 1} \\
+&= \frac{n}{n + 1} \cdot \frac{X_1 + \ldots + X_n}{n} + \frac{X_{n+1}}{n + 1} \\
+&= \frac{n}{n + 1} \cdot \Xbar + \frac{X_{n+1}}{n + 1} \\
+&= \frac{n \cdot \Xbar + X_{n+1}}{n + 1}
+\end{align*}
+
+And we are done.
+\end{proof}
+
+** $nS_{n+1}^2 = (n - 1) S_n^2 + \left( \frac{n}{n+1} \right) \left(X_{n+1} - \overline{X}_n \right)^2$.
+From definition $5.2.3$, we have the sample variance of sample size $n + 1$
+given as
+
+\begin{align*}
+\displaystyle
+S^2 &= \frac{1}{n} \sum_{i=1}^{n+1} (X_i - \Xbar_{n+1})^2 \\
+n \cdot S^2 &=\sum_{i=1}^{n+1} (X_i - \Xbar_{n+1})^2 \\
+\end{align*}
+
+From the previous calculation, we have $\Xbar_{n+1} = \frac{X_{n+1} +
+n\Xbar_n}{n + 1}$.
+
+
+\begin{align*}
+\displaystyle
+n S^2_{n+1} &= \sum_{i=1}^{n+1} \left( X_i - \frac{X_{n+1} + n\Xbar_n}{n + 1} \right)^2 \\
+&= \sum_{i=1}^{n+1} \left( X_i - \Xbar_n + \Xbar_n - \frac{X_{n+1} + n\Xbar_n}{n + 1} \right)^2 \\
+&= \sum_{i=1}^{n+1} \left[ \left( X_i - \Xbar_n \right) + \left( \Xbar_n - \frac{X_{n+1} + n\Xbar_n}{n + 1} \right) \right]^2 \\
+&= \sum_{i=1}^{n+1} \left[ \left( X_i - \Xbar_n \right) + \left( \frac{(n+1) \Xbar_n - X_{n+1} - n\Xbar_n}{n + 1} \right) \right]^2 \\
+&= \sum_{i=1}^{n+1} \left[ \left( X_i - \Xbar_n \right) + \left( \frac{\Xbar_n - X_{n+1}}{n + 1} \right) \right]^2 \\
+&= \sum_{i=1}^{n+1} \left[ \left( X_i - \Xbar_n \right)^2 +
+   2\left( X_i - \Xbar_n \right)\left( \frac{\Xbar_n - X_{n+1}}{n + 1} \right) +
+   \left( \frac{\Xbar_n - X_{n+1}}{n + 1} \right)^2 \right] \\
+&= \sum_{i=1}^{n+1} \left( X_i - \Xbar_n \right)^2 +
+   \sum_{i=1}^{n+1} 2\left( X_i - \Xbar_n \right)\left( \frac{\Xbar_n - X_{n+1}}{n + 1} \right) +
+   \sum_{i=1}^{n+1} \left( \frac{\Xbar_n - X_{n+1}}{n + 1} \right)^2  \\
+&= \sum_{i=1}^n \left( X_i - \Xbar_n \right)^2 + \left( X_{n+1} - \Xbar_n \right)^2 \\
+   & \indent + 2 \left( \frac{\Xbar_n - X_{n+1}}{n + 1} \right)
+     \left[ \sum_{i=1}^n \left( X_i - \Xbar_n \right) + \left( X_{n+1} - \Xbar_n \right) \right] +
+     \left( \frac{\Xbar_n - X_{n+1}}{n + 1} \right)^2 \sum_{i=1}^{n+1} 1   \\
+&= (n-1)S^2_n + \left( X_{n+1} - \Xbar_n \right)^2 +
+     2 \left( \frac{\Xbar_n - X_{n+1}}{n + 1} \right) \left[ 0 + \left( X_{n+1} - \Xbar_n \right) \right] \\
+   & \indent + \left( \frac{\Xbar_n - X_{n+1}}{n + 1} \right)^2 (n + 1)\\
+&= (n-1)S^2_n + \left( X_{n+1} - \Xbar_n \right)^2 -
+     2 \frac{\left( \Xbar_n - X_{n+1} \right)^2}{n + 1} +
+     \frac{\left( \Xbar_n - X_{n+1} \right)^2}{n + 1} \\
+&= (n-1)S^2_n + ( X_{n+1} - \Xbar_n )^2 - \frac{(X_{n+1} - \Xbar_n)^2}{n + 1} \\
+&= (n-1)S^2_n + ( X_{n+1} - \Xbar_n )^2 \left( 1 - \frac{1}{n + 1} \right) \\
+&= (n-1)S^2_n + ( X_{n+1} - \Xbar_n )^2 \left( \frac{n + 1 - 1}{n + 1} \right) \\
+&= (n-1)S^2_n + ( X_{n+1} - \Xbar_n )^2 \left( \frac{n}{n + 1} \right)
+\end{align*}
+And we are done.
+
+
+* (Optional) 5.7.5
+
+Let $X_1, \ldots, X_n$ be =iid= with pdf $f_X(x)$, and let $\Xbar$ denote the
+sample mean. Show that
+
+\[
+f_{\Xbar} = nf_{X_1 + \ldots + X_n} (nx),
+\]
+
+even if the =mgf= of $X$ does not exist.
