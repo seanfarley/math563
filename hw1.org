@@ -1,8 +1,13 @@
 #+title: Homework 1
 #+date: Tuesday, January 25, 2022
 #+options: toc:nil
-#+latex_header: \allowdisplaybreaks
+#+latex_header: \usepackage{enumitem}
+#+latex_header: \setlist[enumerate,1]{label=$\alph*)$}
+#+latex_header: \usepackage{amsthm}
+#+latex_header: \newenvironment{problem}{\begin{itshape}}{\end{itshape}}
+#+latex_header: \newenvironment{solution}{\begin{proof}[Solution]}{\end{proof}}
 #+latex_header: \newcommand{\Xbar}{\overline{X}}
+#+latex_header: \allowdisplaybreaks
 
 * Exercise 5.7.1
 
