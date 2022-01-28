@@ -113,11 +113,11 @@ that
 From definition $5.2.2$, we have the sample mean of sample size $n + 1$ given as
 
 \begin{align*}
-\Xbar &= \frac{X_1 + \ldots + X_n + X_{n+1}}{n + 1} \\
+\Xbar_{n+1} &= \frac{X_1 + \ldots + X_n + X_{n+1}}{n + 1} \\
 &= \frac{X_1 + \ldots + X_n}{n + 1} + \frac{X_{n+1}}{n + 1} \\
 &= \frac{n}{n + 1} \cdot \frac{X_1 + \ldots + X_n}{n} + \frac{X_{n+1}}{n + 1} \\
-&= \frac{n}{n + 1} \cdot \Xbar + \frac{X_{n+1}}{n + 1} \\
-&= \frac{n \cdot \Xbar + X_{n+1}}{n + 1}
+&= \frac{n}{n + 1} \cdot \Xbar_{n} + \frac{X_{n+1}}{n + 1} \\
+&= \frac{n \cdot \Xbar_{n} + X_{n+1}}{n + 1}
 \end{align*}
 
 And we are done.
