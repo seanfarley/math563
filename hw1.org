@@ -18,7 +18,7 @@ be $0.95$ or more? (Assume that the population is large enough to be considered
 infinite, so that sampling can be considered to be with replacement.)
 #+end_problem
 
-** TODO use early lectures to show that this problem statement is $iid$
+TODO use early lectures to show that this problem statement is $iid$
 
 #+begin_proof
 /Solution/
