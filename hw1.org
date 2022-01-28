@@ -72,6 +72,7 @@ a $0.95$ probability).
 #+end_solution
 
 * Exercise 5.7.4
+#+begin_problem
 A generalization of =iid= random variables is exchangeable random variables, an
 idea due to deFinetti (1972). A discussion of exchangeability can also be found
 in Feller (1971). The random variables $X_{1}, \ldots, X_{n}$ are exchangeable if any
@@ -98,6 +99,7 @@ exchangeable but not =iid=. Let $X_{i} \mid P \sim$ =iid= $\text{Bernoulli}(P)$,
   \]
 
   so the distribution of the $X$'s is exchangeable but not =iid=.
+#+end_problem
 
 * Exercise 5.7.15
 
