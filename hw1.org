@@ -111,7 +111,7 @@ that
 ** $\Xbar_{n+1} = \frac{X_{n+1} + n\Xbar_n}{n + 1}$.
 #+end_problem
 
-\begin{proof}
+#+begin_solution
 From definition $5.2.2$, we have the sample mean of sample size $n + 1$ given as
 
 \begin{align*}
@@ -122,8 +122,7 @@ From definition $5.2.2$, we have the sample mean of sample size $n + 1$ given as
 &= \frac{n \cdot \Xbar_{n} + X_{n+1}}{n + 1}
 \end{align*}
 
-And we are done.
-\end{proof}
+#+end_solution
 
 ** $nS_{n+1}^2 = (n - 1) S_n^2 + \left( \frac{n}{n+1} \right) \left(X_{n+1} - \overline{X}_n \right)^2$.
 From definition $5.2.3$, we have the sample variance of sample size $n + 1$
