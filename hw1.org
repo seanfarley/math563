@@ -27,7 +27,6 @@ has the complement set of "all zero."
 
 Using this insight, let us formulate an easier problem statement: What is the
 probability that each person is not colorblind? In other words,
-
 \[
 P\left(X_1=x_1(\text{not CB}),
 X_2=x_2(\text{not CB}), \ldots, X_n=x_n(\text{not CB})\right) = ?
@@ -41,12 +40,15 @@ P&\left(X_1=x_1(\text{not CB}), X_2=x_2(\text{not CB}), \ldots, X_n=x_n(\text{no
 \end{align*}
 
 From probability theory, we have $P(A^c) = 1 - P(A)$, which we'll use to
-calculate $P(\text{not CB})$. Given that, we have $P(\text{not CB}) = 1 -
+calculate $P(\text{not CB})$. Therefore, we have $P(\text{not CB}) = 1 -
 P(\text{CB}) = 1 - 0.01 = 0.99$.
 
-From our insight, we know that $P(\text{at least one CB person}) = 1 -
-P(\text{all people are not CB})$. Therefore,
-
+From our insight, we know that,
+\[
+P(\text{at least one CB person}) = 1 -
+P(\text{all people are not CB})
+\]
+Therefore,
 \begin{align*}
 P(\text{at least one CB person}) &= 1 - P(\text{all people are not CB}) \\
 &= 1 - P(\text{person not being CB})^n \\
@@ -55,7 +57,6 @@ P(\text{at least one CB person}) &= 1 - P(\text{all people are not CB}) \\
 
 We are asked how big our sample size $n$ needs to be for the $P(\text{at least
 one CB person}) \ge 0.95$. This leads us to,
-
 \begin{align*}
 1 - (0.99)^n &\ge 0.95 \\
 1 - 0.95 &\ge 0.99^n \\
