@@ -1,8 +1,8 @@
-#+TITLE: Homework 1
-#+DATE: Tuesday, January 25, 2022
-#+OPTIONS: toc:nil
-#+LATEX_HEADER_EXTRA: \allowdisplaybreaks
-#+LATEX_HEADER_EXTRA: \newcommand{\Xbar}{\overline{X}}
+#+title: Homework 1
+#+date: Tuesday, January 25, 2022
+#+options: toc:nil
+#+latex_header: \allowdisplaybreaks
+#+latex_header: \newcommand{\Xbar}{\overline{X}}
 
 * Exercise 5.7.1
 
