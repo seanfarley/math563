@@ -102,12 +102,14 @@ so the distribution of the $X$'s is exchangeable but not =iid=.
 
 * Exercise 5.7.15
 
+#+begin_problem
 Establish the following recursion relations for means and variances. Let
 $\overline{X}_n$ and $S_n^2$ be the mean and variance, respectively, of
 $X_1,\ldots,X_n$. Then suppose another observation, $X_{n+1}$ becomes available. Show
 that
 
 ** $\Xbar_{n+1} = \frac{X_{n+1} + n\Xbar_n}{n + 1}$.
+#+end_problem
 
 \begin{proof}
 From definition $5.2.2$, we have the sample mean of sample size $n + 1$ given as
