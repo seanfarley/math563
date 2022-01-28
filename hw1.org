@@ -20,9 +20,7 @@ infinite, so that sampling can be considered to be with replacement.)
 
 TODO use early lectures to show that this problem statement is $iid$
 
-#+begin_proof
-/Solution/
-
+#+begin_solution
 A useful insight to this problem is that "at least 1," meaning, one, two, ...,
 or all people (or any subset) selected from the population ($A$) are colorblind,
 has the complement set of "all zero."
@@ -69,8 +67,8 @@ n &\ge \frac{\log 0.05}{\log 0.99} \approx 298.072
 \end{align*}
 
 Therefore, we need a sample size of $n \ge 299$ (the smallest integer to guarantee
-a $0.95$ probability). \qed
-#+end_proof
+a $0.95$ probability).
+#+end_solution
 
 * Exercise 5.7.4
 A generalization of =iid= random variables is exchangeable random variables, an
