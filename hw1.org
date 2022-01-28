@@ -83,22 +83,21 @@ In this exercise we will see an example of random variables that are
 exchangeable but not =iid=. Let $X_{i} \mid P \sim$ =iid= $\text{Bernoulli}(P)$, $i=1,
 \ldots, n$, and let $P \sim \text{uniform}(0,1)$.
 
-- Show that the marginal distribution of any $k$ of the $X$'s is the same as
+1. Show that the marginal distribution of any $k$ of the $X$'s is the same as
 
-  \begin{align*}
+\begin{align*}
   P\left(X_{1}=x_{1}, \ldots, X_{k}=x_{k}\right) &= \int_{0}^{1} p^{t}(1-p)^{k-t} dp \\
   &= \frac{t!(k-t) !}{(k+1) !}
-  \end{align*}
+\end{align*}
 
-  where $t={\displaystyle \sum_{i=1}^{k} x_{i}}$. Hence, the $X$'s are exchangeable.
+where $t={\displaystyle \sum_{i=1}^{k} x_{i}}$. Hence, the $X$'s are exchangeable.
 
-- Show that, marginally,
-
-  \[
+2. Show that, marginally,
+\[
   P\left(X_{1}=x_{1}, \ldots,X_{n}=x_{n}\right) \neq \prod_{i=1}^{n} P\left(X_{i}=x_{i}\right),
-  \]
+\]
 
-  so the distribution of the $X$'s is exchangeable but not =iid=.
+so the distribution of the $X$'s is exchangeable but not =iid=.
 #+end_problem
 
 * Exercise 5.7.15
