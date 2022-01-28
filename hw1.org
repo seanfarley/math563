@@ -23,7 +23,7 @@ infinite, so that sampling can be considered to be with replacement.)
 #+begin_proof
 /Solution/
 
-A useful insight to this problem is that "at least 1", meaning, one, two, ...,
+A useful insight to this problem is that "at least 1," meaning, one, two, ...,
 or all people (or any subset) selected from the population ($A$) are colorblind,
 has the complement set of "all zero."
 
