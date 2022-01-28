@@ -108,7 +108,7 @@ $\overline{X}_n$ and $S_n^2$ be the mean and variance, respectively, of
 $X_1,\ldots,X_n$. Then suppose another observation, $X_{n+1}$ becomes available. Show
 that
 
-** $\Xbar_{n+1} = \frac{X_{n+1} + n\Xbar_n}{n + 1}$.
+1) $\Xbar_{n+1} = \frac{X_{n+1} + n\Xbar_n}{n + 1}$
 #+end_problem
 
 #+begin_solution
@@ -121,10 +121,13 @@ From definition $5.2.2$, we have the sample mean of sample size $n + 1$ given as
 &= \frac{n}{n + 1} \cdot \Xbar_{n} + \frac{X_{n+1}}{n + 1} \\
 &= \frac{n \cdot \Xbar_{n} + X_{n+1}}{n + 1}
 \end{align*}
-
 #+end_solution
 
-** $nS_{n+1}^2 = (n - 1) S_n^2 + \left( \frac{n}{n+1} \right) \left(X_{n+1} - \overline{X}_n \right)^2$.
+#+begin_problem
+2) [@2] $nS_{n+1}^2 = (n - 1) S_n^2 + \left( \frac{n}{n+1} \right) \left(X_{n+1} -\Xbar_n \right)^2$
+#+end_problem
+
+#+begin_solution
 From definition $5.2.3$, we have the sample variance of sample size $n + 1$
 given as
 
@@ -166,8 +169,7 @@ n S^2_{n+1} &= \sum_{i=1}^{n+1} \left( X_i - \frac{X_{n+1} + n\Xbar_n}{n + 1} \r
 &= (n-1)S^2_n + ( X_{n+1} - \Xbar_n )^2 \left( \frac{n + 1 - 1}{n + 1} \right) \\
 &= (n-1)S^2_n + ( X_{n+1} - \Xbar_n )^2 \left( \frac{n}{n + 1} \right)
 \end{align*}
-And we are done.
-
+#+end_solution
 
 * (Optional) 5.7.5
 
