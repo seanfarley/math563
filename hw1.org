@@ -85,20 +85,96 @@ exchangeable but not =iid=. Let $X_{i} \mid P \sim$ =iid= $\text{Bernoulli}(P)$,
 
 1. Show that the marginal distribution of any $k$ of the $X$'s is the same as
 
-\begin{align*}
+\begin{equation}
   P\left(X_{1}=x_{1}, \ldots, X_{k}=x_{k}\right) &= \int_{0}^{1} p^{t}(1-p)^{k-t} dp \\
   &= \frac{t!(k-t) !}{(k+1) !}
-\end{align*}
-
+\end{equation}
 where $t={\displaystyle \sum_{i=1}^{k} x_{i}}$. Hence, the $X$'s are exchangeable.
+#+end_problem
 
-2. Show that, marginally,
+#+begin_solution
+Recall the conditional pmf from definition 4.2.1,
+
+\[
+P(X_{1}, \ldots, X_{k} | P) = \frac{f(x_{1}, \ldots, x_{k})}{f_{X_{1},\ldots,X_{k}}(P)}
+\]
+
+where,
+\[
+f(x_{1}, \ldots, x_{k}) = P(X_{1}=x_{1}, \ldots, \X_{k}=x_{k})
+\]
+
+which is our left-hand side of the equation in question. First, let's tackle the
+conditional probability side. From 5.1.2, we have that,
+\[
+P(X_{1}, \ldots, X_{k} | P) = \prod_{i=1}^{k} P(X_{i}|P)
+\]
+We are given that $X_{i}|P \sim \text{Bernoulli}(P)$ so we know the probability,
+\[
+P(X_{i}|P) = p^{x_{i}}(1 - p)^{1-x_{i}}.
+\]
+Putting this together, we have,
+\begin{align*}
+P(X_{1}, \ldots, X_{k} | P) &= \prod_{i=1}^{k} p^{x_{i}}(1 - p)^{1-x_{i}}
+                       = p^{\sum_{i=1}^{k} x_{i}}(1 - p)^{\sum_{i=1}^{k}(1-x_{i})} \\
+&= p^{\sum_{i=1}^{k} x_{i}}(1 - p)^{k - \sum_{i=1}^{k} x_{i}}.
+\end{align*}
+Using $t = {\displaystyle \sum_{i=1}^{k} x_{i}}$, we can write this as,
+\[
+P(X_{1}, \ldots, X_{k} | P) = p^t(1 - p)^{k - t}.
+\]
+Putting this together with the uniform distribution on $(0,1)$, we have
+\[
+f(x_{1}, \ldots, x_{k})} = P(X_{1}, \ldots, X_{k}) = \int_{0}^{1} p^t(1 - p)^{k - t} dp.
+\]
+This is our first result for (a). Our next step is to recognize that this is
+Beta distribution. Recall the definition of the Beta distribution,
+\[
+B(x, y) = \int_{0}^{1}t^{x-1}(1-t)^{y-1}dt.
+\]
+In our case, that means our integral is a Beta distribution of $B(t+1, k-t+1)$.
+From the properties of the Beta distribution we have,
+\[
+B(t+1, k-t+1) = \frac{\Gamma(t+1) \cdot \Gamma(k-t+1)}{\Gamma(t+1+k-t+1)} = \frac{\Gamma(t+1) \cdot \Gamma(k-t+1)}{\Gamma(k+2)}.
+\]
+Also recall that $\Gamma(n) = (n-1)!$ for any integer $n$, therefore,
+\[
+\int_{0}^{1} p^t(1 - p)^{k - t} dp = \frac{t! (k-t)!}{(k+1)!}.
+\]
+#+end_solution
+
+#+begin_problem
+2. [@2] Show that, marginally,
 \[
   P\left(X_{1}=x_{1}, \ldots,X_{n}=x_{n}\right) \neq \prod_{i=1}^{n} P\left(X_{i}=x_{i}\right),
 \]
 
 so the distribution of the $X$'s is exchangeable but not =iid=.
 #+end_problem
+
+#+begin_solution
+From our conditional probability, we have
+\[
+P(X_{i}=x_{i}) = P(X_{i}=x_{i}|P) \cdot P(p) = \int_{0}^{1}p^{x_{i}}(1-p)^{1-x_{i}}dp.
+\]
+As before, our Beta distribution gives us,
+\begin{align*}
+\int_{0}^{1}p^{x_{i}}(1-p)^{1-x_{i}}dp &=
+\frac{\Gamma(x_{i}+1)\Gamma((1-x_{i})+1)}{\Gamma(x_{i}+1 + 1 - x_{i} + 1)} \\
+&= \frac{\Gamma(x_{i}+1)\Gamma(2-x_{i})}{\Gamma(3)} \\
+&= \frac{x_{i}!(1-x_{i})!}{2!}
+\end{align*}
+
+For the left-hand side, we have
+\[
+P(X_{1}=x_{1},\ldots,X_{n}=x_{n}) = \frac{t! (n-t)!}{(n+1)!}
+\]
+
+Now, we can see that these two quantities are not equal,
+\[
+\frac{t! (n-t)!}{(n+1)!} \ne \prod_{i=1}^{n} \frac{x_{i}!(1-x_{i})!}{2!}.
+\]
+#+end_solution
 
 * Exercise 5.7.15
 
