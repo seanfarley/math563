@@ -18,8 +18,6 @@ be $0.95$ or more? (Assume that the population is large enough to be considered
 infinite, so that sampling can be considered to be with replacement.)
 #+end_problem
 
-TODO use early lectures to show that this problem statement is $iid$
-
 #+begin_solution
 A useful insight to this problem is that "at least 1," meaning, one, two, ...,
 or all people (or any subset) selected from the population ($A$) are colorblind,
