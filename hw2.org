@@ -39,6 +39,50 @@ What is the probability that the larger of two continuous $iid$ random variables
 will exceed the population median? Generalize this result to samples of size $n$.
 #+end_problem
 
+#+begin_solution
+Note: taking "exceed" to mean "greater than," i.e. "$>$"
+
+Let $m$ be our median and $X_{1}, X_{2}$ be our two continuous =iid= random
+variables. Recall that the median is defined (p. 78) as $\prob(X \le m) =
+\frac{1}{2}$ and $\prob(X \ge m) = \frac{1}{2}$.
+
+A useful insight into this problem is that "larger of two continuous =iid=
+random variables," e.g. $\max(X_{1}, X_{2})$, means "both $X_{1}, X_{2}$ are
+greater than $m$, $X_{1}$ is greater than $m$ but $X_{2}$ is not, or $X_{2}$ is
+greater than $m$ but $X_{1}$ is not. " Just as in exercise $5.7.1$, it is much
+easier to take the complement of this, which in this case means "both $X_{1}$ and
+$X_{2}$ are less than or equal to $m$."
+
+In other words, our insight can be written as,
+\begin{eqnarray*}
+\prob(\max(X_{1}, X_{2}) > m) & = & 1 - \prob(X_{1},X_{2} \le m).
+\end{eqnarray*}
+
+Now, we just use the fact that $X_{1}, X_{2}$ are =iid=,
+
+\begin{eqnarray*}
+\prob(X_{1},X_{2} \le m) & = & \prob(X_{1} \le m) \cdot \prob(X_{2} \le m).
+\end{eqnarray*}
+
+By definition, $\prob(X_{i} \le m) = \frac{1}{2}$. Therefore,
+
+\begin{eqnarray*}
+\prob(\max(X_{1}, X_{2}) > m) & = & 1 - \prob(X_{1},X_{2} \le m) \\
+& = & 1 - \prob(X_{1} \le m) \cdot \prob(X_{2} \le m) \\
+& = & 1 - \left( \frac{1}{2} \cdot \frac{1}{2} \right) \\
+& = & \frac{3}{4}.
+\end{eqnarray*}
+
+Now, let's generalize this for samples of size $n$. Let $\randsamp$ be our
+random sample of size $n$. Using the same reasoning as before,
+\begin{eqnarray*}
+\prob(\max(\randsamp) > m) & = & 1 - \prob(\randsamp \le m) \\
+& = & 1 - \left( \prob(X_{1} \le m) \cdot \ldots \cdot \prob(X_{n} \le m) \right) \\
+& = & 1 - \prod_{i=1}^{n}\prob(X_{i} \le m) \\
+& = & 1 - \left( \frac{1}{2} \right)^{n}.
+\end{eqnarray*}
+#+end_solution
+
 * Exercise 5.7.24
 
 #+begin_problem
@@ -49,7 +93,7 @@ f_{X}(x) =
 1/\theta \quad &\text{if} \,\, 0 < x < \theta \\
 0 \quad &\text{otherwise}.
 \end{cases}
-\begin{equation*}\end{equation*}
+\end{equation*}
 
 Let $X_{(1)} < \ldots < X_{(n)}$ be the order statistics. Show that $X_{(1)}/X_{(n)}$
 and $X_{(n)}$ are independent random variables.
