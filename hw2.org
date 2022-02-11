@@ -1,0 +1,83 @@
+#+title: Homework 2
+#+date: Tuesday, February 11, 2022
+#+options: toc:nil
+#+latex_header: \usepackage{enumitem}
+#+latex_header: \setlist[enumerate,1]{label=$\alph*)$}
+#+latex_header: \usepackage{amsthm}
+#+latex_header: \newenvironment{problem}{\begin{itshape}}{\end{itshape}}
+#+latex_header: \newenvironment{solution}{\begin{proof}[Solution]}{\end{proof}}
+#+latex_header: \newcommand{\Xbar}{\overline{X}}
+#+latex_header: \newcommand{\prob}{\text{Pr}}
+#+latex_header: \newcommand{\randsamp}{X_1, \ldots, X_n}
+#+latex_header: \newcommand{\iid}{\randsamp \sim\text{iid}}
+#+latex_header: \allowdisplaybreaks
+
+* Exercise 5.7.13
+
+#+begin_problem
+Let $\iid\, N(\mu, \sigma^{2})$ . Find a function of $S^{2}$, the same variance, say
+$g(S^{2})$, that satisfies $Eg(S^{2}) = \sigma$. (/Hint/: Try $g(S^{2}) = c
+\sqrt{S^{2}}$ where $c$ is constant.)
+#+end_problem
+
+* Exercise 5.7.16
+
+#+begin_problem
+Let $X_{i}, i = 1, 2, 3$, be independent with $N(i, i^{2})$ distributions. For
+each of the following situations, use $X_{i}$'s to construct a statistic with
+the indicated distribution,
+
+1) chi squared with 3 degrees of freedom
+1) t distribution with 2 degrees of freedom
+1) F distribution with 1 and 2 degrees of freedom
+#+end_problem
+
+* Exercise 5.7.21
+
+#+begin_problem
+What is the probability that the larger of two continuous $iid$ random variables
+will exceed the population median? Generalize this result to samples of size $n$.
+#+end_problem
+
+* Exercise 5.7.24
+
+#+begin_problem
+Let $\randsamp$ be a random sample from a population with pdf
+\begin{equation*}
+f_{X}(x) =
+\begin{cases}
+1/\theta \quad &\text{if} \,\, 0 < x < \theta \\
+0 \quad &\text{otherwise}.
+\end{cases}
+\begin{equation*}\end{equation*}
+
+Let $X_{(1)} < \ldots < X_{(n)}$ be the order statistics. Show that $X_{(1)}/X_{(n)}$
+and $X_{(n)}$ are independent random variables.
+#+end_problem
+
+* Exercise 5.7.31
+
+#+begin_problem
+Suppose $\Xbar$ is the mean of $100$ observations from a population with mean
+$\mu$ and variance $\sigma^{2} = 9$. Find the limits between which $\Xbar - \mu$ will lie
+with probability at least $0.90$. Use both Chebychev's Inequality and the Central
+Limit Theorem, and comment on each.
+#+end_problem
+
+* Exercise 5.7.33
+
+#+begin_problem
+Let $X_{n}$ be a sequence of random variables that converges in distribution to
+a random variable $X$. Let $Y_{n}$ be a sequence of random variables with the
+property that for any finite number $c$,
+
+\[
+\lim_{n \to \infty} \prob(Y_{n} > c) = 1.
+\]
+
+Show that for any finite number $c$,
+
+\[
+\lim_{n \to \infty} \prob(X_{n} + Y_{n} > c) = 1.
+\]
+#+end_problem
