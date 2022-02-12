@@ -12,6 +12,7 @@
 #+latex_header: \newcommand{\iid}{\randsamp \sim\text{iid}}
 #+latex_header: \newcommand{\ve}{\varepsilon}
 #+latex_header: \allowdisplaybreaks
+#+latex_header: \everymath{\displaystyle}
 
 * Exercise 5.7.13
 
