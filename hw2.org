@@ -151,6 +151,51 @@ Let $X_{(1)} < \ldots < X_{(n)}$ be the order statistics. Show that $X_{(1)}/X_{
 and $X_{(n)}$ are independent random variables.
 #+end_problem
 
+#+begin_solution
+First of all, we can see that the cdf can be immediately written as,
+\begin{equation*}
+F_X(x) = \frac{x}{\theta}, \quad \forall \,\, 0 < x < \theta.
+\end{equation*}
+The joint pdf of $X_{(i)}$ and $X_{(j)}$  is given as,
+
+\begin{eqnarray*}
+f_{X_{(1)},X_{(n)}}(x_{(1)},x_{(n)}) &=&
+\frac{n!}{(n-2)!} f_{X_{(1)}}(x_{(1)}) f_{X_{(n)}}(x_{(n)})
+\left[ F_{X_{(n)}}(x_{(n)}) - F_{X_{(1)}}(x_{(1)}) \right]^{n-2} \\
+&=& n(n-1) \cdot \frac{1}{\theta} \cdot \frac{1}{\theta} \cdot \left[ \frac{x_{(n)}}{\theta} - \frac{x_{(1)}}{\theta} \right]^{n-2} \\
+&=& \frac{n(n-1)}{\theta^n} \left( x_{(n)} - x_{(1)} \right)^{n-2}
+\end{eqnarray*}
+
+To use the Jacobian, define $u = \frac{x_{(1)}}{x_{(n)}}$ and $v = x_{(n)}$.
+This gives us,
+
+\begin{eqnarray*}
+J &=&
+\begin{vmatrix}
+\frac{\partial{x_{(1)}}}{\partial{u}} & \frac{\partial{x_{(n)}}}{\partial{u}} \\
+\frac{\partial{x_{(1)}}}{\partial{v}} & \frac{\partial{x_{(n)}}}{\partial{v}} \\
+\end{vmatrix}
+ \\
+&=&
+\begin{vmatrix}
+v & 0 \\
+u & 1 \\
+\end{vmatrix} \\
+&=& \lvert v \rvert \\
+\end{eqnarray*}
+
+Using this we now have a transformed pdf,
+
+\begin{eqnarray*}
+f_{U,V}(u,v) &=& \frac{n(n-1)}{\theta^n} (v - uv)^{n-2} \cdot \lvert J \rvert \\
+&=& \frac{n(n-1)}{\theta^n} v^{n-2} (1 - u)^{n-2} \cdot v \\
+&=& \frac{n(n-1)}{\theta^n} v^{n-1} (1 - u)^{n-2} \\
+\end{eqnarray*}
+
+Which we can see is separable, therefore $U$ and $V$ are independent where
+$U=\frac{X_{(1)}}{X_{(n)}}$ and $V = X_{(n)}$ .
+#+end_solution
+
 * Exercise 5.7.31
 
 #+begin_problem
