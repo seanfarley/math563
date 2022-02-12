@@ -10,6 +10,7 @@
 #+latex_header: \newcommand{\prob}{\text{Pr}}
 #+latex_header: \newcommand{\randsamp}{X_1, \ldots, X_n}
 #+latex_header: \newcommand{\iid}{\randsamp \sim\text{iid}}
+#+latex_header: \newcommand{\ve}{\varepsilon}
 #+latex_header: \allowdisplaybreaks
 
 * Exercise 5.7.13
@@ -125,3 +126,38 @@ Show that for any finite number $c$,
 \lim_{n \to \infty} \prob(X_{n} + Y_{n} > c) = 1.
 \]
 #+end_problem
+
+#+begin_solution
+Choose an $m$ such that it is a continuity point of our cdf for $X_n$.  Now,
+let's consider,
+
+\begin{eqnarray*}
+\prob(X_n + Y_n > c) &=& \prob((X_n + m) + (Y_n - m) > c) \\
+&=& \prob((X_n + m) + (Y_n - m - c) > 0) \\
+&\ge& \prob(X_n + m > 0) + \prob(Y_n - m - c > 0) - 1 \\
+&\ge& \prob(X_n > -m) + \prob(Y_n > c + m) - 1 \\
+\end{eqnarray*}
+
+Now, since we have that $X_n$ converges in distribution, we can choose an
+arbitrary $\ve$ such that,
+
+\(
+\prob(X_n > -m) > 1 - \frac{\ve}{2}.
+\)
+
+Similarly, since we have $lim_{n \to \infty} \prob(Y_n > c) = 1$ we can choose an
+arbitrary $\ve$ such that,
+
+\(
+\prob(Y_n > c + m > 1 - \frac{\ve}{2}.
+\)
+
+Putting this together, we now have,
+
+\begin{eqnarray*}
+\prob(X_n + Y_n > c) &\ge& \prob(X_n > -m) + \prob(Y_n > c + m) - 1 \\
+&>& 1 - \frac{\ve}{2} + 1 - \frac{\ve}{2} - 1 \\
+&=& 1 - \ve.
+\end{eqnarray*}
+
+#+end_solution
