@@ -201,9 +201,40 @@ $U=\frac{X_{(1)}}{X_{(n)}}$ and $V = X_{(n)}$ .
 #+begin_problem
 Suppose $\Xbar$ is the mean of $100$ observations from a population with mean
 $\mu$ and variance $\sigma^{2} = 9$. Find the limits between which $\Xbar - \mu$ will lie
-with probability at least $0.90$. Use both Chebychev's Inequality and the Central
+with probability at least $0.9$. Use both Chebychev's Inequality and the Central
 Limit Theorem, and comment on each.
 #+end_problem
+
+#+begin_solution
+We can see that $\sigma_{\Xbar}^2 = \frac{9}{100}$. Using Chebychev's Inequality, we
+have
+
+\begin{equation*}
+\prob(-3k/10 < \Xbar - \mu < 3k/10) \ge 1 - 1/k^2.
+\end{equation*}
+
+Since we're looking for a probability of at least $0.9$, we have $k \ge \sqrt{10}
+\approx 3.16$.  Hence, we now have,
+
+\begin{equation*}
+\prob(-.949 < \Xbar - \mu < .949) \ge 0.9.
+\end{equation*}
+
+Using the Central Limit Theorem, $\Xbar$ is approximately $N(\mu, \sigma^2)$ with
+$\sigma_{\Xbar} = \sqrt{0.09} = 0.3$  and,
+
+\begin{equation*}
+\frac{\Xbar - \mu}{0.3} \sim N(0,1).
+\end{equation*}
+
+Therefore,
+
+\begin{equation*}
+0.9 = \prob \left( -1.646 < \frac{\Xbar - \mu}{.3} < 1.646 \right) = \prob(-.494 < \Xbar - \mu < .494).
+\end{equation*}
+
+Comment: Chebychev's Inequality is clearly more conservative.
+#+end_solution
 
 * Exercise 5.7.33
 
