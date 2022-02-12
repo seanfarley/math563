@@ -21,6 +21,34 @@ $g(S^{2})$, that satisfies $Eg(S^{2}) = \sigma$. (/Hint/: Try $g(S^{2}) = c
 \sqrt{S^{2}}$ where $c$ is constant.)
 #+end_problem
 
+#+begin_solution
+From the hint, we have $g(S^2) = c \sqrt{S^2}$. Since this is a sample from a
+normal distribution,
+
+\begin{eqnarray*}
+E\left( g(S^2) \right) &=& E\left( c \sqrt{S^2} \right)
+                        = c \sqrt{\frac{\sigma^2}{n - 1}} E\left( \sqrt{\frac{S^2(n-1)}{\sigma}} \right) \\
+&=& c \sqrt{\frac{\sigma^2}{n - 1}} \int_0^{\infty} \sqrt{t} \frac{1}{\Gamma(\frac{n-1}{2})2^{(n-1)/2}} t^{\left( \frac{n-1}{2} \right) - 1} e^{-t/2} dt.
+\end{eqnarray*}
+
+Recognize that this is almost the $\chi^2$ distribution, which we can obtain by
+multiplying by something equivalent to $1$,
+
+\begin{eqnarray*}
+E\left( c \sqrt{S^2} \right) &=& c \sqrt{\frac{\sigma^2}{n - 1}} \cdot \frac{\Gamma(n/2)2^{n/2}}{\Gamma(\frac{n-1}{2})2^{(n-1)/2}}
+\int_0^{\infty} \frac{1}{\Gamma(n/2)2^{n/2}} t^{\left( \frac{n-1}{2} \right) - 1/2} e^{-t/2} dt \\
+&=&  c \sqrt{\frac{\sigma^2}{n - 1}} \cdot \frac{\Gamma(n/2)2^{1/2}}{\Gamma(\frac{n-1}{2})}
+\int_0^{\infty} \frac{1}{\Gamma(n/2)2^{n/2}} t^{\left( \frac{n-1}{2} \right) - 1/2} e^{-t/2} dt \\
+&=&  c \sqrt{\frac{\sigma^2}{n - 1}} \cdot \frac{\Gamma(n/2)2^{1/2}}{\Gamma(\frac{n-1}{2})}
+\end{eqnarray*}
+
+Therefore, to have this equal $\sigma$, we need $c$ to be,
+
+\(
+c = \sqrt{\frac{n-1}{2}} \cdot \frac{\Gamma(\frac{n-1}{2})}{\Gamma(n/2)}.
+\)
+
+#+end_solution
 * Exercise 5.7.16
 
 #+begin_problem
