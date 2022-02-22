@@ -5,3 +5,6 @@ tmp/
 
 *.tex
 *.auctex*
+*.md
+*.html
+*.tmp
