@@ -8,6 +8,8 @@
 #+latex_header: \everymath{\displaystyle}
 
 #+begin_src latex-macros
+\newenvironment{problem}{\begin{itshape}}{\end{itshape}}
+\newenvironment{solution}{\begin{proof}[Solution]}{\end{proof}}
 \newcommand{\Xbar}{\overline{X}}
 \newcommand{\randsamp}{X_1, \ldots, X_n}
 \newcommand{\iid}{\randsamp \sim\text{iid}}
