@@ -4,6 +4,8 @@
 #+latex_header: \usepackage{enumitem}
 #+latex_header: \setlist[enumerate,1]{label=$\alph*)$}
 #+latex_header: \usepackage{amsthm}
+#+latex_header: \usepackage{tikz}
+#+latex_header: \usetikzlibrary{arrows,intersections}
 #+latex_header: \allowdisplaybreaks
 #+latex_header: \everymath{\displaystyle}
 
@@ -33,6 +35,32 @@ right corner $(\theta_3, \theta_4)$ in $\mathbb{R}^2$. The parameters satisfy $\
 < \theta_4$. Let $(X_1, Y_1), \ldots, (X_n, Y_n)$ be a random sample from this pdf. Find a
 four-dimensional sufficient statistic for $(\theta_1, \theta_2, \theta_3, \theta_4)$.
 #+end_problem
+
+#+begin_solution
+Let's take a look at,
+
+\begin{tikzpicture}
+  \coordinate (O) at (0,0);
+
+  \draw[->] (-0.3,0) -- (8,0) coordinate (xmax);
+  \draw[->] (0,-0.3) -- (0,5) coordinate[label = {right:$\mathbb{R}^2$}] (ymax);
+  \path[name path=x] (0.3,0.5) -- (6.7,4.7);
+  \path[name path=y] plot[smooth] coordinates {(-0.3,2) (2,1.5) (4,2.8) (6,5)};
+
+  \scope[name intersections = {of = x and y, name = i}]
+    \fill[gray!20] (i-1) -- (i-2 |- i-1) -- (i-2) -- (i-1 |- i-2);
+    \draw (i-1) node[dot, label = {south west:$(\theta_1, \theta_2)$}] (i-1) {};
+    \path (i-2) node[dot, label = {north east:$(\theta_3, \theta_4)$}] (i-2) {} -- (i-2 |- i-1)
+      node[dot] (i-12) {};
+    \draw[blue, <->] (i-2) -- node[right] {$|\theta_4 - \theta_2|$} (i-12);
+    \draw[blue, <->] (i-1) -- node[below] {$|\theta_3 - \theta_1|$} (i-12);
+
+    \node (area) at (8,4.4) {$A=(\theta_3 - \theta_1)(\theta_4 - \theta_2)$};
+    \draw[->] (area.west) to[bend right] (3,2.5);
+  \endscope
+\end{tikzpicture}
+
+#+end_solution
 
 * Exercise 6.5.12
 
