@@ -50,9 +50,9 @@ Let's take a look at,
 
   \scope[name intersections = {of = x and y, name = i}]
     \fill[gray!20] (i-1) -- (i-2 |- i-1) -- (i-2) -- (i-1 |- i-2);
-    \draw (i-1) node[dot, label = {south west:$(\theta_1, \theta_2)$}] (i-1) {};
-    \path (i-2) node[dot, label = {north east:$(\theta_3, \theta_4)$}] (i-2) {} -- (i-2 |- i-1)
-      node[dot] (i-12) {};
+    \draw (i-1) node[label = {south west:$(\theta_1, \theta_2)$}] (i-1) {};
+    \path (i-2) node[label = {north east:$(\theta_3, \theta_4)$}] (i-2) {}
+    -- (i-2 |- i-1) node (i-12) {};
     \draw[blue, <->] (i-2) -- node[right] {$|\theta_4 - \theta_2|$} (i-12);
     \draw[blue, <->] (i-1) -- node[below] {$|\theta_3 - \theta_1|$} (i-12);
 
