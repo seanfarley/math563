@@ -23,7 +23,8 @@
 
 #+begin_problem
 Let $X_1, X_2, \ldots, X_n$ be a random sample from a Gaussian distribution with mean
-$\mu$ and variance $\sigma^2 < \infty$. Show that  $\sum_{i=1}^{n} X_i^2$ is a sufficient statistic for $\mu$.
+$\mu=0$ and variance $\sigma^2 < \infty$. Show that $\sum_{i=1}^n X_i^2$ is a sufficient
+statistic for $\sigma^2$.
 #+end_problem
 
 * Exercise 6.5.7
