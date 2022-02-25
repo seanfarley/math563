@@ -88,6 +88,22 @@ Let $\iid \, n(\theta, a\theta^2)$, where $a$ is a known constant and $\theta > 
    but the family of distributions is not complete.
 #+end_problem
 
+#+begin_solution
+$\\$
+1) The parameter space of $n(\theta, a\theta^2)$ has only one independent variable and can
+   we represented by the graph of $y = a\theta^2$ (just demonstration for $a>0$)
+
+\begin{tikzpicture}
+  \draw[->] (-0.2,0) -- (4,0) node[right] {$\theta$};
+  \draw[->] (0,-0.2) -- (0,4) node[above] {$y$};
+
+  \draw[red, thick] (-.5,.25) parabola bend (0,0) (4,4) node[below right] {$a\theta^2$};
+\end{tikzpicture}
+
+This graph is an one-dimensional object embedded in two-dimensional space
+therefore it has no two-dimensional open subsets.
+#+end_solution
+
 * Exercise 6.5.19
 
 #+begin_problem
