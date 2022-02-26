@@ -29,6 +29,20 @@ $\mu=0$ and variance $\sigma^2 < \infty$. Show that $\sum_{i=1}^n X_i^2$ is a su
 statistic for $\sigma^2$.
 #+end_problem
 
+#+begin_solution
+Let's take our usual distribution $f(x | \theta)$ and $\theta = \sigma^2$, (keeping in mind $\mu
+= 0$)
+
+\begin{eqnarray*}
+f(x | \theta) & =& \prod_{i=1}^n (2\pi\sigma^2)^{\frac{-1}{2}} \exp \left( - \frac{(x_i - \mu)^2}{2\sigma^2} \right) \\
+& =& (2\pi\sigma^2)^{\frac{-n}{2}} \exp \left( - \sum_{i=1}^n \frac{(x_i)^2}{2\sigma^2} \right) \\
+& =& (2\pi\sigma^2)^{\frac{-n}{2}} \exp \left( \frac{-1}{2\sigma^2} \sum_{i=1}^n x_i^2 \right) \\
+& =& (2\pi\sigma^2)^{\frac{-n}{2}} \exp \left( \frac{-1}{2\sigma^2} T(x) \right) \\
+\end{eqnarray*}
+
+So, we can see that this is now a sufficient statistic.
+#+end_solution
+
 * Exercise 6.5.7
 
 #+begin_problem
