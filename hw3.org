@@ -12,7 +12,7 @@
 
 #+begin_src latex-macros
 \newenvironment{problem}{\begin{itshape}}{\end{itshape}}
-\newenvironment{solution}{\begin{proof}[Solution]}{\end{proof}}
+\newenvironment{solution}{\begin{proof}[Solution]$ $\par\nobreak\ignorespaces}{\end{proof}}
 \newcommand{\Xbar}{\overline{X}}
 \newcommand{\xbar}{\overline{x}}
 \newcommand{\randsamp}{X_1, \ldots, X_n}
@@ -112,7 +112,6 @@ Let $\iid \, n(\theta, a\theta^2)$, where $a$ is a known constant and $\theta > 
 #+end_problem
 
 #+begin_solution
-$\\$
 1) The parameter space of $n(\theta, a\theta^2)$ has only one independent variable and can
    we represented by the graph of $y = a\theta^2 \,\, \theta > 0$ (just a demonstration for $a>0$)
 
