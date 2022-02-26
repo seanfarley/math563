@@ -40,7 +40,15 @@ f(x | \theta) & =& \prod_{i=1}^n (2\pi\sigma^2)^{\frac{-1}{2}} \exp \left( - \fr
 & =& (2\pi\sigma^2)^{\frac{-n}{2}} \exp \left( \frac{-1}{2\sigma^2} T(x) \right) \\
 \end{eqnarray*}
 
-So, we can see that this is now a sufficient statistic.
+Since this is of the form $g(T(x) | \theta) \cdot h(x)$, where
+
+\begin{eqnarray*}
+T(x) & =& \sum_{i=1}^n X_i^2 \\
+h(x) & =& 1
+\end{eqnarray*}
+
+By the Factorization Theorem (p. 279 [cite:@casella2021statistical]) $T$ is a
+sufficient statistic.
 #+end_solution
 
 * Exercise 6.5.7
