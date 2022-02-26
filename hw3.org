@@ -14,6 +14,7 @@
 \newenvironment{problem}{\begin{itshape}}{\end{itshape}}
 \newenvironment{solution}{\begin{proof}[Solution]}{\end{proof}}
 \newcommand{\Xbar}{\overline{X}}
+\newcommand{\xbar}{\overline{x}}
 \newcommand{\randsamp}{X_1, \ldots, X_n}
 \newcommand{\iid}{\randsamp \sim\text{iid}}
 \newcommand{\E}{\mathbb{E}}
@@ -91,17 +92,119 @@ Let $\iid \, n(\theta, a\theta^2)$, where $a$ is a known constant and $\theta > 
 #+begin_solution
 $\\$
 1) The parameter space of $n(\theta, a\theta^2)$ has only one independent variable and can
-   we represented by the graph of $y = a\theta^2$ (just demonstration for $a>0$)
+   we represented by the graph of $y = a\theta^2 \,\, \theta > 0$ (just a demonstration for $a>0$)
 
 \begin{tikzpicture}
   \draw[->] (-0.2,0) -- (4,0) node[right] {$\theta$};
   \draw[->] (0,-0.2) -- (0,4) node[above] {$y$};
 
-  \draw[red, thick] (-.5,.25) parabola bend (0,0) (4,4) node[below right] {$a\theta^2$};
+  \draw[red, thick] (0,0) parabola bend (0,0) (4,4) node[below right] {$a\theta^2$};
 \end{tikzpicture}
 
 This graph is an one-dimensional object embedded in two-dimensional space
 therefore it has no two-dimensional open subsets.
+
+1) [@2] Let's write the pdf for the normal distribution,
+
+\begin{equation*}
+f(X_i=x_i|\theta) = \frac{1}{\sqrt{2\pi a \theta^2}} \exp{\left( - \frac{(x_i-\theta)^2}{2a\theta^2} \right)}
+\end{equation*}
+
+And for the joint distribution,
+
+\begin{eqnarray*}
+f(X_1=x_1, \ldots, \X_n=x_n|\theta) & =& \prod_{i=1}^n \frac{1}{\sqrt{2\pi a\theta^2}} \exp{\left( -\frac{(x_i-\theta)^2}{2a\theta^2} \right)} \\
+& =& \left(2\pi a\theta^2\right)^{\frac{-n}{2}} \exp{ \left( - \frac{\sum_{i=1}^n (x_i-\theta)^2}{2a\theta^2} \right)} \\
+\end{eqnarray*}
+
+Let us consider just the term $\sum_{i=1}^n (x_i-\theta)^2$ by using the familiar adding
+and subtracting of $\xbar$,
+
+\begin{eqnarray*}
+\sum_{i=1}^n (x_i-\theta)^2 & = & \sum_{i=1}^n (x_i- \xbar + \xbar - \theta)^2\\
+& =& \sum_{i=1}^n (x_i- \xbar)^2 + 2(x_i - \xbar)(\xbar - \theta) + (\xbar - \theta)^2\\
+& =& \sum_{i=1}^n (x_i- \xbar)^2 + 2(\xbar - \theta) \sum_{i=1}^n (x_i - \xbar) + \sum_{i=1}^n (\xbar - \theta)^2\\
+\end{eqnarray*}
+
+Recall that $\sum_{i=1}^n (x_i - \xbar) = 0$, so we now have,
+
+\begin{eqnarray*}
+\sum_{i=1}^n (x_i-\theta)^2 & =& \sum_{i=1}^n (x_i- \xbar)^2 + \sum_{i=1}^n (\xbar - \theta)^2\\
+& =& \sum_{i=1}^n (x_i- \xbar)^2 + n (\xbar - \theta)^2\\
+
+\end{eqnarray*}
+
+Also, recall that the sample variance is,
+$S^2 = \frac{1}{n-1} \sum_{i=1}^n (X_i - \Xbar)^2$,
+
+\begin{eqnarray*}
+\sum_{i=1}^n (x_i-\theta)^2 & =&  (n-1)s^2 + n (\xbar - \theta)^2 \\
+\end{eqnarray*}
+
+Using this result in our joint distribution, we now have
+
+\begin{eqnarray*}
+f(X_1=x_1, \ldots, \X_n=x_n|\theta) & =& \left(2\pi a\theta^2\right)^{\frac{-n}{2}} \exp{ \left( - \frac{\sum_{i=1}^n (x_i-\theta)^2}{2a\theta^2} \right)} \\
+& =& \left(2\pi a\theta^2\right)^{\frac{-n}{2}} \exp{ \frac{-1}{2a\theta^2} \left( (n-1)s^2 + n (\xbar - \theta)^2 \right) }
+\end{eqnarray*}
+
+Since this is of the form $g(T_1(x), T_2(x) | \theta) \cdot h(x)$, where
+
+\begin{eqnarray*}
+T_1(x) & =& \Xbar \\
+T_2(x) & =& S^2 \\
+h(x) & =& 1
+\end{eqnarray*}
+
+By the Factorization Theorem (p. 279 [cite:@casella2021statistical]) $T(x) =
+(\Xbar, S^2)$ is a
+sufficient statistic.
+
+Now, we show that that $T$ is not complete. We will do this by constructing a
+$g(T)$ where $\E_{\theta}(g(T)) = 0 \,\, \forall \, \theta$ such that $g(T) = 0$ isn't implied.
+We know that $\E(S^2) = a\theta^2$. Recall the alternative form of variance,
+
+\begin{equation}
+\label{eq:altvar}
+\var{(\Xbar)} = \E(\Xbar^2) - \left( \E(\Xbar) \right)^2
+\end{equation}
+
+But we know that,
+
+\begin{eqnarray*}
+\var(\Xbar) & =& \var{\left( \frac{1}{n} (X_1 + \dots + X_n) \right)} \\
+& =& \frac{1}{n^2} \left( \var{(X_1)} + \dots + \var{(X_n)}) \\
+& =& \frac{1}{n^2} \left( a\theta^2 + \dots + a\theta^2 \right) \\
+& =& \frac{a\theta^2}{n}
+\end{eqnarray*}
+
+Rewriting $\eqref{eq:altvar}$ we have,
+
+\begin{eqnarray*}
+\E(X^2) & =& \var(\Xbar) + \left(\E(\Xbar)\right)^2 \\
+& =& \frac{a\theta^2}{n} + \theta^2 \\
+& =& \frac{a + n}{n} \theta^2
+\end{eqnarray*}
+
+This guides us to choose,
+
+\begin{equation}
+\label{eq:g}
+g(\Xbar, S^2) = \frac{n}{a + n} \Xbar^2 - \frac{S^2}{a}
+\end{equation}
+
+Now, we calculate,
+
+\begin{eqnarray*}
+\E(g(\Xbar, S^2)) & =& \E\left( \frac{n}{a + n} \Xbar^2 - \frac{S^2}{a} \right) \\
+& =& \frac{n}{a + n} \E(\Xbar^2) - \frac{1}{a} \E(S^2) \\
+& =& \frac{n}{a + n} \left( \frac{a + n}{n} \theta^2 \right) - \frac{1}{a} \left( a\theta^2 \right) \\
+& =& \theta^2 - \theta^2 \\
+& =& 0
+\end{eqnarray*}
+
+So, we have $\E(g) = 0$ for all $\theta$ but, of course, $P(g(T) = 0)$ is not
+necessarily $1$.
 #+end_solution
 
 * Exercise 6.5.19
